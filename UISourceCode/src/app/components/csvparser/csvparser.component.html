@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 style="text-align: center;">Assignment - Import CSV File</h2>
+    <div class="row" style="margin-top:40px">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" style="text-align: right;padding-top: 5px;">
+          <label><b>Upload File :</b></label></div><div class="col-md-4"> <input style="
+            width: 100%;
+            border: 1px solid #c9cec9;
+        " type="file" title="Upload csv file" [(ngModel)]="filePath" class="upload" (change)="fileChangeListener($event.target.files)">
+         <div style="text-align:  center;color:green;margin-top: 10px;" *ngIf="fileDetails.length > 0" >File Uploaded Successfully</div>
+          </div>
+      <div class="col-md-3"><button (click)="reset()">Reset</button></div>
+    </div>
+<table class="table" style="margin-top:40px">
+<thead>
+  <tr>
+    <th  *ngFor="let header of headerDetails">{{header}}<br><input *ngIf="header == 'Issue count'" type="text" [(ngModel)]="issueCount"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let line of fileDetails | issuecountfilter : issueCount" >
+    <td *ngFor="let key of line | keys ">{{line[key]}}</td>
+  </tr>
+</tbody>
+</table>
+</div>

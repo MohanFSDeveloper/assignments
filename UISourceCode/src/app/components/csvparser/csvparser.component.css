@@ -1,0 +1,12 @@
+thead{
+    background: #30a0e2;
+    
+}
+.table thead th {
+    text-transform: capitalize;
+     vertical-align: top;
+}
+
+table,td,th{
+    border: 1px solid #e3e7e8;
+}
